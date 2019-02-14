@@ -1,13 +1,16 @@
 """
 This module have a class Operation
 for use in the program.
+
 """
 
+from models.operations.add import Add
+from models.operations.subtract import Subtract
+from models.operations.multiply import Multiply
+from models.operations.divide import Divide
+from helpers.utils import validate_number, define_operation_to_make
 from options.types_operations import OPERATIONS
-from models.add import Add
-from models.subtract import Subtract
-from models.multiply import Multiply
-from models.divide import Divide
+from messages.error_messages import VALUE_ERROR, ZERO_ERROR, SYNTAX_ERROR
 
 class Operation:
 	"""
@@ -21,6 +24,13 @@ class Operation:
 	Depending of the type of operation
 	the constructor method, generate two inputs
 	for get the first number and the second number for make the operation.
+
+	In alls the functions instance a class for the operation to make, and return
+	the value of the each class. Also controlling some exception of error with a block
+	try except.
+
+	See classes in ./operations/
+
 	"""
 
 	def __init__(self, type_operation):
@@ -32,6 +42,10 @@ class Operation:
 		self.type = type_operation
 		self.n1 = None
 		self.n2 = None
+
+		# this validation is for define the name of the operation to make
+		self.name_operation = define_operation_to_make(type_operation, OPERATIONS)
+		
 
 	def make_operation(self):
 		"""
@@ -45,69 +59,69 @@ class Operation:
 			self.__show_inputs()
 
 			# validating if the value of the numbers is numeric
-			if self.n1.isdigit() == False:
-				print(f'The value of number 1 {self.n1} not is a nubmer. Enter a numeric value.')
+			if not validate_number(self.n1):
+				print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
 
-			elif self.n2.isdigit() == False:
-				print(f'The value of the number 2 {self.n2} not is a number. Enter a numeric value.')
-					
+			elif not validate_number(self.n2):
+				print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
+
 			else:
 				result = self.__get_result_add()
-				print( f'Output > {result}' )
+				print( f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation) )
 
 		if self.type in OPERATIONS[1]:
 			# in case is subtract operation, showing the inputs
 			self.__show_inputs()
 
 			# validating if the value of the numbers is numeric
-			if self.n1.isdigit() == False:
-				print(f'The value of number 1 {self.n1} not is a nubmer. Enter a numeric value.')
+			if not validate_number(self.n1):
+				print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
 
-			elif self.n2.isdigit() == False:
-				print(f'The value of the number 2 {self.n2} not is a number. Enter a numeric value.')
-					
+			elif not validate_number(self.n2):
+				print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
+
 			else:
 				result = self.__get_result_substract()
-				print( f'Output > {result}' )
+				print( f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation) )
 
 		if self.type in OPERATIONS[2]:
 			# in case is multiply operation, showing the inputs
 			self.__show_inputs()
 
 			# validating if the value of the numbers is numeric
-			if self.n1.isdigit() == False:
-				print(f'The value of number 1 {self.n1} not is a nubmer. Enter a numeric value.')
+			if not validate_number(self.n1):
+				print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
 
-			elif self.n2.isdigit() == False:
-				print(f'The value of the number 2 {self.n2} not is a number. Enter a numeric value.')
-					
+			elif not validate_number(self.n2):
+				print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
+
 			else:
 				result = self.__get_result_multiply()
-				print( f'Output > {result}' )
-		
+				print( f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation))
+
 		if self.type in OPERATIONS[3]:
 			# in case is divide operation, showing the inputs
 			self.__show_inputs()
 
-			# validating if the value of the numbers is numeric
-			if self.n1.isdigit() == False:
-				print(f'The value of number 1 {self.n1} not is a nubmer. Enter a numeric value.')
+			# validating if the value of the numbers are numeric values
+			if not validate_number(self.n1):
+				print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
 
-			elif self.n2.isdigit() == False:
-				print(f'The value of the number 2 {self.n2} not is a number. Enter a numeric value.')
-				
+			elif not validate_number(self.n2):
+				print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
+
 			# in case be cero
 			elif self.n2 == '0':
-				print("The number 2 is a 0. Can't divide between cero.")
+				print( ZERO_ERROR )
 
 			else:
 				result = self.__get_result_divide()
-				print( f'Output > {result}' )
-		
+				print( f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation) )
+
 
 	def get_operation(self):
 		"""
-		Only return the self.type property.
+		Only return the self.type property for use.
 		"""
 		return self.type
 
@@ -118,7 +132,7 @@ class Operation:
 		Return the 2 values.
 		"""
 
-		# assing the new value to the properties
+		# assing the new value to the properties for make the operation
 		self.n1, self.n2 = input('\nNumber 1: '), input('Number 2: ')
 
 	def __get_result_add(self):
@@ -126,36 +140,51 @@ class Operation:
 		Return the result of the operation created
 		in case be a add.
 		"""
-		add = Add( float(self.n1), float(self.n2) )
-		total = add.get_total()
-		return total
+		try: # this is in case happend in syntax error of whatever type
+			add = Add( float(self.n1), float(self.n2) )
+			total = add.get_total()
+			return total
+
+		except:
+			return 'e'
 
 	def __get_result_substract(self):
 		"""
 		Return the result of the
 		opearation created, in case be a subtract.
 		"""
-		substract = Subtract( float(self.n1),  float(self.n2) )
-		total = substract.get_total()
-		return total
+		try:
+			substract = Subtract( float(self.n1),  float(self.n2) )
+			total = substract.get_total()
+			return total
+
+		except:
+			return 'e'
 
 	def __get_result_multiply(self):
 		"""
 		Return the result of the operation
 		created, in case be a multiply
 		"""
-		multiply = Multiply( float(self.n1), float(self.n2) )
-		total = multiply.get_total()
-		return total
+		try:
+			multiply = Multiply( float(self.n1), float(self.n2) )
+			total = multiply.get_total()
+			return total
+
+		except:
+			return 'e'
 
 	def __get_result_divide(self):
 		"""
 		Return the result of the operation
 		create, in case be a divide
 		"""
-		divide = Divide( float(self.n1), float(self.n2) )
-		total = divide.get_total()
-		return total
+		try:
+			divide = Divide( float(self.n1), float(self.n2) )
+			total = divide.get_total()
+			return total
+		except:
+			return 'e'
 
 	def __str__(self):
 		return 'The type of the operation is {self.type}.'

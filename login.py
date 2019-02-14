@@ -1,45 +1,47 @@
 """
 This file have the function
 for make the login of the user.
+
 """
 
 from time import sleep
 from models.user import User
 
-
 def make_animation():
 	"""
-	Print a animation
-	for use in the login function,
-	when the user logged.
+	Make a small animation for when the
+	user logged
 	"""
 
-	elements_list = ['+', '++', '+++', '++++', '+++++', '++++++']
+	print('Login ....')
+	sleep(0.5)
 
-	# showign each element
-	for e in elements_list:
-		print(e)
-		
-		# waiting
-		sleep(0.5)
+	# point = '.'
 
+	# for i in range(4):
+	# 	print( point, end = '' )
 
+	# 	# waiting
+	# 	sleep(0.5)
+
+	print('\nDone :D')
+	
 
 def login():
 	"""
 	Make the login for the user
-	getting the username
+	getting the username.
+	Creating a user object.
 	"""
-	print('\nLogin')
+
+	print('Login')
+	
 	# getting the username and creating the user object
 	username = input('Username > ')
 	user = User(username)
 
-	# login
-	print('\nLogin ...')
-	# doing the animation
+	# making the animation
 	make_animation()
-	print('Done :D')
 
 	# returning the object
 	return user
