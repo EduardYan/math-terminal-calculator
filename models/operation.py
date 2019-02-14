@@ -4,6 +4,9 @@ for use in the program.
 
 """
 
+import sys
+sys.path.append('~/Personal_dan/Python-Proyects/math-terminal-calculator/')
+
 from models.operations.add import Add
 from models.operations.subtract import Subtract
 from models.operations.multiply import Multiply
@@ -142,7 +145,7 @@ class Operation:
 		"""
 		try: # this is in case happend in syntax error of whatever type
 			add = Add( float(self.n1), float(self.n2) )
-			total = add.get_total()
+			total = add.get_result_operation(self.type)
 			return total
 
 		except:
@@ -155,7 +158,7 @@ class Operation:
 		"""
 		try:
 			substract = Subtract( float(self.n1),  float(self.n2) )
-			total = substract.get_total()
+			total = substract.get_result_operation(self.type)
 			return total
 
 		except:
@@ -168,7 +171,7 @@ class Operation:
 		"""
 		try:
 			multiply = Multiply( float(self.n1), float(self.n2) )
-			total = multiply.get_total()
+			total = multiply.get_result_operation(self.type)
 			return total
 
 		except:
@@ -181,7 +184,7 @@ class Operation:
 		"""
 		try:
 			divide = Divide( float(self.n1), float(self.n2) )
-			total = divide.get_total()
+			total = divide.get_result_operation(self.type)
 			return total
 		except:
 			return 'e'

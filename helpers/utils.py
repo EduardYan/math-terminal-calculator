@@ -6,9 +6,9 @@ Show data of the operations, etc ...
 """
 
 import sys
-sys.path.append('/home/pi/Personal_dan/Python-Proyects/math-terminal-calculator/')
+sys.path.append('~/Personal_dan/Python-Proyects/math-terminal-calculator/')
 
-from options.types_operations import SUBTRACT
+from options.types_operations import OPERATIONS, SUBTRACT
 
 def show_operations_maked(user):
     """
@@ -55,5 +55,24 @@ def define_operation_to_make(property, operations_list):
 
 	if property in operations_list[3]:
 		property = 'divide'
+
+	return property
+
+def define_operator(property, operations_list):
+	"""
+	Return the type of operator depending of the operations_list
+	passed for parameter.
+	"""
+	if property in OPERATIONS[0]:
+		property = '+'
+
+	if property in OPERATIONS[1]:
+		property = '-'
+
+	if property in OPERATIONS[2]:
+		property = '*'
+
+	if property in OPERATIONS[3]:
+		property = '/'
 
 	return property

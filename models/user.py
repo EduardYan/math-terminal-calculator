@@ -5,7 +5,7 @@ for work with the user and use.
 """
 
 import sys
-sys.path.append('/home/pi/Personal_dan/Python-Proyects/math-terminal-calculator/')
+sys.path.append('~/Personal_dan/Python-Proyects/math-terminal-calculator/')
 
 from models.operation import Operation
 from helpers.utils import define_operation_to_make
