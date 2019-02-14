@@ -116,3 +116,12 @@ def isnegative(number):
     # validating the number
 
     return True if number[0] == '-' else False
+
+
+def is_pair(number):
+    """
+    Return True if the number passed for parameter
+    is pair.
+    """
+    # validating and returning
+    return True if number /2 == 0 else False

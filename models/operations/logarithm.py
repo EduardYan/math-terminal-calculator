@@ -2,8 +2,11 @@
 This module have the class Logarithm.
 """
 
-from .operation_math import OperationMathematic
+import sys
+sys.path.append('..')
 
+from .operation_math import OperationMathematic
+from helpers.utils import is_pair
 
 class Logarithm(OperationMathematic):
     def __init__(self, number, base):
@@ -19,7 +22,29 @@ class Logarithm(OperationMathematic):
         x = 12/10
 
         """
-        return self.base**(0.4/self.number)
+        pass
+
+    def descomp(self):
+        """
+        Descompone the number
+        in primes factories.
+        """
+
+        # validating if the number is pair or inpair for
+        # return the number
+
+        if is_pair(self.number):
+            div = self.number / 2
+            while div != 1:
+                div = div / 2
+
+            return div
+
+        # self.number = self.number / 3
+        # while self.number != 1:
+            # self.number = self.number / 3
+
+        # return self.number
 
     def show_log(self):
         """
