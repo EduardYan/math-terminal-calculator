@@ -124,4 +124,4 @@ def is_pair(number):
     is pair.
     """
     # validating and returning
-    return True if number /2 == 0 else False
+    return True if number % 2 == 0 else False

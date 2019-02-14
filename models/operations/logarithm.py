@@ -28,26 +28,44 @@ class Logarithm(OperationMathematic):
         """
         Descompone the number
         in primes factories.
+
+        12|2
+        6|2
+        3|2
+        1|1
+
+        2^3
+
+
         """
 
         # validating if the number is pair or inpair for
         # return the number
-
         if is_pair(self.number):
-            div = self.number / 2
+            div = self.number / 2 # dividing
+            count = 1 # counter for know the count of the while loop
+
             while div != 1:
                 div = div / 2
+                count += 1
 
-            return div
+            return count
 
-        # self.number = self.number / 3
-        # while self.number != 1:
-            # self.number = self.number / 3
+        else:
+            div = self.number / 2
+            count = 1
 
-        # return self.number
+            while div != 1:
+                div = div / 2
+                count += 1
+
+            return count
 
     def show_log(self):
         """
         Show the log result.
         """
         print('showing the log')
+
+    def __str__(self):
+        return 'This is a logarithm'
