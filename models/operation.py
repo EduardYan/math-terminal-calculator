@@ -12,8 +12,8 @@ from .operations.potency import Potency
 from .operations.equation import Equation
 from .operations.logarithm import Logarithm
 from helpers.utils import validate_number, define_operation_to_make
-from options.types_operations import OPERATIONS
-from messages.error_messages import VALUE_ERROR, ZERO_ERROR, SYNTAX_ERROR
+from options.types_operations import OPERATIONS, OPERATORS
+from messages.error_messages import VALUE_ERROR, ZERO_ERROR, SYNTAX_ERROR, OPERATOR_EQUATION_EROR
 from styles.styles import MAGENTA, GREEN
 
 
@@ -142,8 +142,19 @@ class Operation:
             # making the opeartion in case be a Equation
             equation = Equation()
             equation.show_help_equation() # showing the help for the user
-            equation.show_inputs_equation() # showing the data for do the opeartion
-            equation.show_result_equation()
+
+            if not validate_number(equation.n1):
+                print( VALUE_ERROR.format(number = 'Value 1', number_value = equation.n1) )
+
+            elif not validate_number(equation.n2):
+                print( VALUE_ERROR.format(number = 'Value 2', number_value = equation.n2) )
+
+            elif not equation.operator in OPERATORS[0] or not equation.operator in OPERATORS[1] or not equation.operator in OPERATORS[2] or not equation.operator in OPERATORS[3]:
+                print( OPERATOR_EQUATION_EROR )
+
+            else:
+                equation.show_result_equation()
+
 
         if self.type in OPERATIONS[6]:
             log = Logarithm()
@@ -171,6 +182,16 @@ class Operation:
         """
         self.n1, self.n2 = input( MAGENTA + '\nNumber to Pontecy: '), input( MAGENTA + 'Pontency: ')
 
+    def __show_inputs_equation(self):
+        """
+        Show the three inputs for get the value1, the value2
+        and the operator for make equation.
+        """
+
+        # getting the values and adding this properties at the father class
+        equation.n1 = input( MAGENTA + 'Value 1: ')
+        equation.operator = input( MAGENTA + 'Operator: ')
+        equation.n2 = (input( MAGENTA + 'Value 2: ')
 
     def __get_result_add(self):
         """

@@ -17,3 +17,6 @@ OPERATIONS = (ADD, SUBTRACT, MULTIPLY, DIVIDE, POTENCY, ECUATION, LOG)
 
 # this is a list with the operations join
 JOIN_OPERATIONS = ADD + SUBTRACT + MULTIPLY + DIVIDE + POTENCY + ECUATION + LOG
+
+# this is for validate the operators with a list
+OPERATORS = (ADD, SUBTRACT, MULTIPLY, DIVIDE)

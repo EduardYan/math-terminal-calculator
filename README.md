@@ -23,7 +23,7 @@ $ python3 main.py
 __Or:__
 
 ```bash
-python3 -m main
+$ python3 -m main
 ```
 ## Screenshot.
 ![](/doc/screenshot.png)

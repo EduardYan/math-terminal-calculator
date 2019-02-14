@@ -18,3 +18,6 @@ ZERO_ERROR = RED + BADCHECK3.symbol_to_show + " The number 2 is a 0. Can't divid
 
 # in case happend a syntax error
 SYNTAX_ERROR = RED + BADCHECK3.symbol_to_show + ' Syntax error for make the operation {name_operation}. Try again.'
+
+# in case the operator of the equation not be valid
+OPERATOR_EQUATION_ERROR = RED + BADCHECK3.symbol_to_show + 'The operator of the equation not is valid. Choice some operator (+, -, * or /).'

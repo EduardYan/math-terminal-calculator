@@ -46,7 +46,7 @@ class Logarithm(OperationMathematic):
         if is_pair(self.number):
             # import pdb; pdb.set_trace() # for debug
 
-            divisor = self.__get_divisor(self.number)
+            divisor = self.__get_divisor()
 
             div = self.number / divisor # dividing
             count = 1 # counter for know the count of the while loop

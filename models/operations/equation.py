@@ -6,10 +6,12 @@ Equation for make  a equation
 import sys
 sys.path.append('..')
 
-from messages.equation_messages import HELP_EQUATION_MESSAGE
 from .operation_math import OperationMathematic
+from messages.equation_messages import HELP_EQUATION_MESSAGE, VALUE_ERROR
+from messages.error_messages import OPERATOR_EQUATION_ERROR
 from helpers.utils import isnegative
 from styles.styles import GREEN, BLACK, MAGENTA
+from options.types_operations import OPERATORS
 
 class Equation(OperationMathematic):
 	"""
@@ -20,16 +22,6 @@ class Equation(OperationMathematic):
 	def __init__(self):
 		# initials values
 		self.variable_to_find = 'x'
-
-	def show_inputs_equation(self):
-		"""
-		Show two inputs for get the value1, the value2
-		and the operator for make equation.
-		"""
-		# getting the values and adding this properties at the father class
-		self.n1 = float(input( MAGENTA + 'Value 1: ') )
-		self.operator = input( MAGENTA + 'Operator: ')
-		self.n2 = float(input( MAGENTA + 'Value 2: ') )
 
 	def show_help_equation(self):
 		"""
@@ -49,7 +41,7 @@ class Equation(OperationMathematic):
 		Transpons the terms of the equation.
 		"""
 
-		# validating if is negative (here is the algoritm)
+		# validating if is negative (here is the algoritm) and return it
 		if self.operator == '-':
 			if isnegative(str(self.n1)) and isnegative(str(self.n2)):
 				return self.n2 + self.n1
@@ -63,6 +55,9 @@ class Equation(OperationMathematic):
 				return self.n2 + self.n1
 
 			return self.n2 - self.n1
+
+    def validate_operator(self):
+
 
 	def get_result_equation(self):
 		"""

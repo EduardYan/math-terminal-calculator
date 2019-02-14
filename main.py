@@ -31,9 +31,6 @@ def main():
     # PRINCIPAL LOOP
     while True:
         type_operation = input( BLUE + '\nType Operation (+, -, *, /) > ' )
-        # definning the operation to make and the type of operation
-        user.operation_to_make = type_operation
-        print( BLACK + f'The operation to make is {user.operation_to_make}.' )
 
         # validating for exit of the program with the options for exie
         if type_operation == OPTIONS[0] or type_operation == OPTIONS[1] or type_operation == OPTIONS[2] or type_operation == OPTIONS[3] or type_operation == OPTIONS[4] or type_operation == OPTIONS[5] or type_operation == OPTIONS[6]:
@@ -52,6 +49,10 @@ def main():
             print( HELP_MESSAGE )
 
         else:
+            # definning the operation to make and the type of operation
+            user.operation_to_make = type_operation
+            print( BLACK + f'The operation to make is {user.operation_to_make}.' )
+
             # the user making the operation
             user.make_operation(type_operation)
             show_operations_maked(user)

@@ -4,10 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-colorama = "*"
+colorama = "==0.4.4"
 
 [dev-packages]
-ipython = "*"
+ipython = "==7.29.0"
 
 [requires]
 python_version = "3.7"
