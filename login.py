@@ -24,7 +24,7 @@ def make_animation():
 	# 	# waiting
 	# 	sleep(0.5)
 
-	print('\nDone :D')
+	print('\nDone :D' +  '\u2713')
 	
 
 def login():
