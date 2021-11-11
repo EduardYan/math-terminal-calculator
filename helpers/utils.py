@@ -6,9 +6,9 @@ Show data of the operations, etc ...
 """
 
 import sys
-sys.path.append('~/Personal_dan/Python-Proyects/math-terminal-calculator/')
+sys.path.append('..') # this is for can get other modules for use
 
-from options.types_operations import OPERATIONS, SUBTRACT
+from options.types_operations import OPERATIONS
 
 def show_operations_maked(user):
     """
@@ -28,7 +28,8 @@ def validate_number(number):
 	Validate if the number is valid
 	for make the operation
 	"""
-	options = SUBTRACT
+	# getting the list of negatives signes
+	options = OPERATIONS[1]
 
 	if number[0] in options:
 		return True
@@ -76,3 +77,17 @@ def define_operator(property, operations_list):
 		property = '/'
 
 	return property
+
+
+def clear_terminal():
+	"""
+	This function clean the
+	information in the terminal for the user.
+	"""
+	import os
+
+	# validating the os system
+	if os.name == "posix":
+   		os.system ("clear")
+	elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+   		os.system ("cls")

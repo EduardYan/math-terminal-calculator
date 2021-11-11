@@ -4,16 +4,14 @@ for use in the program.
 
 """
 
-import sys
-sys.path.append('~/Personal_dan/Python-Proyects/math-terminal-calculator/')
-
-from models.operations.add import Add
-from models.operations.subtract import Subtract
-from models.operations.multiply import Multiply
-from models.operations.divide import Divide
+from .operations.add import Add
+from .operations.subtract import Subtract
+from .operations.multiply import Multiply
+from .operations.divide import Divide
 from helpers.utils import validate_number, define_operation_to_make
 from options.types_operations import OPERATIONS
 from messages.error_messages import VALUE_ERROR, ZERO_ERROR, SYNTAX_ERROR
+
 
 class Operation:
 	"""

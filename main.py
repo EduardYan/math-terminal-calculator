@@ -10,7 +10,8 @@ from messages.error_messages import OPERATION_UNKNOW
 from options.exit_options import OPTIONS
 from options.types_operations import JOIN_OPERATIONS
 from options.help_options import HELP_OPTIONS
-from helpers.utils import show_operations_maked
+from options.clear_options import CLEAR_OPTIONS
+from helpers.utils import show_operations_maked, clear_terminal
 from login import login
 
 
@@ -35,6 +36,10 @@ def main():
         # validating for exit of the program
         if type_operation == OPTIONS[0] or type_operation == OPTIONS[1] or type_operation == OPTIONS[2] or type_operation == OPTIONS[3] or type_operation == OPTIONS[4] or type_operation == OPTIONS[5] or type_operation == OPTIONS[6]:
             break
+
+        # for clear the terminal
+        elif type_operation in CLEAR_OPTIONS:
+            clear_terminal()
 
         # in case the type of operation no be supported, validating
         elif type_operation not in JOIN_OPERATIONS + HELP_OPTIONS:

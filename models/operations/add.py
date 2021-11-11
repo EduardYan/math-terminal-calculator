@@ -1,8 +1,12 @@
 """
 This module have the class Add.
 """
+
 import sys
-sys.path.append('/home/pi/Personal_dan/Python-Proyects/math-terminal-calculator/models/operations/')
+import os
+# this is to get other modules to use
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/operations/')))
 
 from operation_math import OperationMathematic
 
