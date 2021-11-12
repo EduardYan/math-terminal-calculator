@@ -61,7 +61,7 @@ def define_operation_to_make(property, operations_list):
     if property in operations_list[4]:
         property = 'potency'
 
-    if property in operations_list[4]:
+    if property in operations_list[5]:
         property = 'ecuation'
 
     return property
@@ -106,3 +106,13 @@ def clear_terminal():
 
     elif os.name == 'ce' or os.name == 'nt' or os.name == 'dos':
         os.system('cls')
+
+
+def isnegative(number):
+    """
+    Return True if the number is negative.
+    If the number is positive return False.
+    """
+    # validating the number
+
+    return True if number[0] == '-' else False

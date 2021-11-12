@@ -12,7 +12,8 @@ from styles.styles import GREEN
 
 INITIAL_MESSAGE = GREEN + '''
     --------------------------------------------
-    |Math Program!!
+    |Math Program!! of EduardYan.
+    |
     |Welcome ~ {username} ~ !!
     |With this program  your can make
     |mathematics operations basics.

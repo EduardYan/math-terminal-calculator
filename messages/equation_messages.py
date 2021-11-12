@@ -8,13 +8,13 @@ sys.path.append('..')
 
 from styles.styles import GREEN
 
-ECUATION_MESSAGE = GREE + '''
+HELP_EQUATION_MESSAGE = GREEN + '''
 	Type of Ecuation to make:
 
-	x -> variable to find.
-	value 1 -> first value.
-	operator -> operator for operate between the first value and the second value.
-	value2 -> second value. 
+	x -----> variable to find.
+	value 1 ----> first value.
+	operator -----> operator for operate between the first value and the second value.
+	value2 -----> second value.
 
 	Sample:
 	x + value 1 = value 2

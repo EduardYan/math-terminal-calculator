@@ -9,7 +9,7 @@ from .operations.subtract import Subtract
 from .operations.multiply import Multiply
 from .operations.divide import Divide
 from .operations.potency import Potency
-from .operation.pontecy import Ecuation
+from .operations.equation import Equation
 from helpers.utils import validate_number, define_operation_to_make
 from options.types_operations import OPERATIONS
 from messages.error_messages import VALUE_ERROR, ZERO_ERROR, SYNTAX_ERROR
@@ -138,20 +138,11 @@ class Operation:
                 print( GREEN + f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation) )
 
         if self.type in OPERATIONS[5]:
-            # in case is divide operation, showing the inputs
-            self.__show_inputs_pontency()
-
-            # validating if the value of the numbers are numeric values
-            if not validate_number(self.n1):
-                print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
-
-            elif not validate_number(self.n2):
-                print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
-
-            else:
-                result = self.__get_result_potency()
-                print( GREEN + f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation) )
-
+            # making the opeartion in case be a Equation
+            equation = Equation()
+            equation.show_help_equation() # showing the help for the user
+            equation.show_inputs_equation() # showing the data for do the opeartion
+            equation.show_result_equation()
 
     def get_operation(self):
         """
@@ -171,18 +162,10 @@ class Operation:
 
     def __show_inputs_pontency(self):
         """
-        Show two inputs for get the ... doc here -----------
+        Show two inputs for get the number to potency and the potenciator
         """
         self.n1, self.n2 = input( MAGENTA + '\nNumber to Pontecy: '), input( MAGENTA + 'Pontency: ')
 
-
-    def __show_inputs_ecuation(self):
-        """
-        Show two inputs for get the variable, the value one
-        and the value two for make the equation and find the variable
-        """
-        # self.n1, self.n2, self.variable = input( MAGENTA + '\n:'), input( MAGENTA + 'Pontency: ')
-        # ggooooooooooooooooooooooooooooooo
 
     def __get_result_add(self):
         """
@@ -247,10 +230,10 @@ class Operation:
         except:
             return 'e'
 
-    def __get_result_ecuation(self):
+    def __get_result_equation(self):
         """
         Return the result of the
-        opeartion created in case be a ecuation
+        opeartion created in case be a equation
         """
         # try:
         #     ecuation = Ecuation( int(self.n1), int(self.n2) )
@@ -258,9 +241,9 @@ class Operation:
         #     return total
         # except:
         #     return 'e'
-        ecuation = Ecuation( float(self.n1), float(self.n2) )
-        ecuation.get_result_operation()
-
+        # equation = Equation()
+        # equation.get_result_operation()
+        pass
 
     def __str__(self):
         return 'The type of the operation is {self.type}.'

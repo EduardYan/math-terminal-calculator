@@ -25,6 +25,9 @@ class Symbol:
 
         print(self.symbol_to_show)
 
+    def __str__(self):
+        return self.symbol_to_show
+
 
 # theses are for the check marks
 CHECK1 = Symbol('\u2705', '✅')
@@ -37,5 +40,21 @@ BADCHECK1 = Symbol('\u274C', '❌')
 BADCHECK2 = Symbol('\u274E', '❎')
 BADCHECK3 = Symbol('\u2718', '✘')
 
+# this is for the help
+HELP_CIRCULE = Symbol(None, '🛈')
+
 # some others marks
 FACE = Symbol('\u1F60E', '😎')
+
+if __name__ == '__main__':
+    print('testing the symbols for show')
+
+    print(CHECK1)
+    print(CHECK2)
+    print(CHECK3)
+    print(CHECK4)
+    print(BADCHECK1)
+    print(BADCHECK2)
+    print(BADCHECK3)
+    print(FACE)
+    print(HELP_CIRCULE)

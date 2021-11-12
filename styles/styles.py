@@ -50,7 +50,7 @@ class CustomStyle:
         in the constructor is valid.
 
         """
-        # validating the option
+        # validating the option passed in the dictionary
         for option in self.style:
             if option not in STYLES_OPTIONS:
                 raise TypeError(f'The option {option} passed in the dict, not is a option validate for use.')
@@ -62,7 +62,15 @@ class CustomStyle:
         Show the custom style create
         in the console.
         """
-        print(self.foreground + self.background + self.style_text + 'custom style')
+
+        # controlling in case the key not in the dictionary
+        try:
+            print(self.style['foreground'] + 'custom style')
+            print(self.style['background'] + 'custom style')
+            print(self.style['style_text'] + 'custom style')
+
+        except KeyError:
+            pass
 
     def get_custom_style(self):
         """
@@ -96,6 +104,9 @@ WHITE = WHITE.get_custom_style()
 
 BLACK = CustomStyle( {'foreground': Fore.BLACK, 'style_text': Style.NORMAL, 'background': Back.WHITE} )
 BLACK = BLACK.get_custom_style()
+
+CYAN = CustomStyle( {'foreground': Fore.CYAN, 'style_text': Style.BRIGHT, 'background': Back.BLACK} )
+CYAN = CYAN.get_custom_style()
 
 
 if __name__ == '__main__':

@@ -8,7 +8,7 @@ from time import sleep
 from colorama import Cursor, Fore, init
 from models.user import User
 from symbols.symbols import CHECK3, CHECK4
-from styles.styles import BLUE, GREEN
+from styles.styles import BLUE, GREEN, CYAN
 
 
 def make_animation():
@@ -37,9 +37,9 @@ def make_animation():
     for i in range(1, len(list_points)):
         if i < 6:
             # quiere decir que no ha terminado
-            print( Cursor.POS(50, 6) + Fore.BLUE + list_points[i] + f' {i}' )
+            print( Cursor.POS(50, 6) + CYAN + list_points[i] + f' {i}' )
         else:
-            print( Cursor.POS(50, 6) + Fore.BLUE + list_points[i] + f' {i - 1} ' + CHECK4.symbol_to_show )
+            print( Cursor.POS(50, 6) + GREEN + list_points[i] + f' {i - 1} ' + CHECK4.symbol_to_show )
         sleep(0.5)
 
     print( GREEN + '\nDone ' + BLUE + CHECK3.symbol_to_show )

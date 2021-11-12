@@ -8,5 +8,6 @@ import sys
 sys.path.append('..')
 
 from styles.styles import GREEN
+from symbols.symbols import FACE
 
-EXIT_MESSAGE = GREEN + '\nExited :}'
+EXIT_MESSAGE = GREEN + '\n' + FACE.symbol_to_show + ' Exited :}'
