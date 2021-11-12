@@ -17,7 +17,8 @@ from login import login
 
 def main():
     """
-    This is the principal function for execute.
+    This is the principal function for execute
+    the program.
     """
 
     # Getting the username
@@ -33,13 +34,13 @@ def main():
         user.operation_to_make = type_operation
         print( f'The operation to make is {user.operation_to_make}.' )
 
-        # validating for exit of the program
+        # validating for exit of the program with the options for exie
         if type_operation == OPTIONS[0] or type_operation == OPTIONS[1] or type_operation == OPTIONS[2] or type_operation == OPTIONS[3] or type_operation == OPTIONS[4] or type_operation == OPTIONS[5] or type_operation == OPTIONS[6]:
             break
 
         # for clear the terminal
         elif type_operation in CLEAR_OPTIONS:
-            clear_terminal()
+            clear_terminal() # cleaning
 
         # in case the type of operation no be supported, validating
         elif type_operation not in JOIN_OPERATIONS + HELP_OPTIONS:
@@ -56,7 +57,6 @@ def main():
 
     # for when exit of the while loop
     print( EXIT_MESSAGE )
-
 
 if __name__ == '__main__':
     main()
