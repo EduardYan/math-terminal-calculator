@@ -11,6 +11,7 @@ from .operations.divide import Divide
 from helpers.utils import validate_number, define_operation_to_make
 from options.types_operations import OPERATIONS
 from messages.error_messages import VALUE_ERROR, ZERO_ERROR, SYNTAX_ERROR
+from styles.styles import MAGENTA, GREEN, RED
 
 
 class Operation:
@@ -30,7 +31,7 @@ class Operation:
 	the value of the each class. Also controlling some exception of error with a block
 	try except.
 
-	See classes in ./operations/
+	See operations classes in ./operations/
 
 	"""
 
@@ -46,7 +47,7 @@ class Operation:
 
 		# this validation is for define the name of the operation to make
 		self.name_operation = define_operation_to_make(type_operation, OPERATIONS)
-		
+
 
 	def make_operation(self):
 		"""
@@ -54,21 +55,21 @@ class Operation:
 		values and print the output.
 		"""
 
-		# validating the type of operation
+		# validating the type of operation for make
 		if self.type in OPERATIONS[0]:
 			# in case is add operation, showing the inputs
 			self.__show_inputs()
 
 			# validating if the value of the numbers is numeric
 			if not validate_number(self.n1):
-				print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
+				print( RED + VALUE_ERROR.format(number = 1, number_value = self.n1) )
 
 			elif not validate_number(self.n2):
-				print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
+				print( RED + VALUE_ERROR.format(number = 2, number_value = self.n2) )
 
 			else:
 				result = self.__get_result_add()
-				print( f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation) )
+				print( GREEN + f'Output > {result}' ) if not result == 'e' else print( RED + SYNTAX_ERROR.format(name_operation = self.name_operation) )
 
 		if self.type in OPERATIONS[1]:
 			# in case is subtract operation, showing the inputs
@@ -76,14 +77,14 @@ class Operation:
 
 			# validating if the value of the numbers is numeric
 			if not validate_number(self.n1):
-				print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
+				print( RED + VALUE_ERROR.format(number = 1, number_value = self.n1) )
 
 			elif not validate_number(self.n2):
-				print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
+				print( RED + VALUE_ERROR.format(number = 2, number_value = self.n2) )
 
 			else:
 				result = self.__get_result_substract()
-				print( f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation) )
+				print( GREEN + f'Output > {result}' ) if not result == 'e' else print( RED + SYNTAX_ERROR.format(name_operation = self.name_operation) )
 
 		if self.type in OPERATIONS[2]:
 			# in case is multiply operation, showing the inputs
@@ -91,14 +92,14 @@ class Operation:
 
 			# validating if the value of the numbers is numeric
 			if not validate_number(self.n1):
-				print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
+				print( RED + VALUE_ERROR.format(number = 1, number_value = self.n1) )
 
 			elif not validate_number(self.n2):
-				print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
+				print( RED + VALUE_ERROR.format(number = 2, number_value = self.n2) )
 
 			else:
 				result = self.__get_result_multiply()
-				print( f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation))
+				print( GREEN + f'Output > {result}' ) if not result == 'e' else print( RED + SYNTAX_ERROR.format(name_operation = self.name_operation))
 
 		if self.type in OPERATIONS[3]:
 			# in case is divide operation, showing the inputs
@@ -106,18 +107,18 @@ class Operation:
 
 			# validating if the value of the numbers are numeric values
 			if not validate_number(self.n1):
-				print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
+				print( RED + VALUE_ERROR.format(number = 1, number_value = self.n1) )
 
 			elif not validate_number(self.n2):
-				print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
+				print( RED + VALUE_ERROR.format(number = 2, number_value = self.n2) )
 
 			# in case be cero
 			elif self.n2 == '0':
-				print( ZERO_ERROR )
+				print( RED + ZERO_ERROR )
 
 			else:
 				result = self.__get_result_divide()
-				print( f'Output > {result}' ) if not result == 'e' else print( SYNTAX_ERROR.format(name_operation = self.name_operation) )
+				print( GREEN + f'Output > {result}' ) if not result == 'e' else print( RED + SYNTAX_ERROR.format(name_operation = self.name_operation) )
 
 
 	def get_operation(self):
@@ -134,7 +135,7 @@ class Operation:
 		"""
 
 		# assing the new value to the properties for make the operation
-		self.n1, self.n2 = input('\nNumber 1: '), input('Number 2: ')
+		self.n1, self.n2 = input( MAGENTA + '\nNumber 1: '), input( MAGENTA + 'Number 2: ')
 
 	def __get_result_add(self):
 		"""

@@ -55,7 +55,7 @@ class OperationMathematic:
 	@property
 	def type_operation(self):
 		return self._type_operation
-	
+
 	@type_operation.setter
 	def type_operation(self, value):
 		if type(value) not in [str]:
@@ -97,12 +97,11 @@ class OperationMathematic:
 	def n2(self):
 		del self._n2
 
-	
 
 	def get_result_operation (self, operator):
 		"""
 		Retun the result of the
-		operation like operator passed for parameter.
+		operation according to the operator passed by parameter.
 		This method validate the type of operation
 		for make + - * or /.
 		"""

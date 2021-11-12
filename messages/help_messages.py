@@ -12,4 +12,6 @@ HELP_MESSAGE = '''\n
 
 	You must enter two numeric values for make the operation.
 
+    For clean the terminal write c.
+
 '''

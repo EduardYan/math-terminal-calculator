@@ -5,7 +5,7 @@ for work with the user and use.
 """
 
 import sys
-sys.path.append('~/Personal_dan/Python-Proyects/math-terminal-calculator/')
+sys.path.append('..')
 
 from models.operation import Operation
 from helpers.utils import define_operation_to_make
@@ -68,7 +68,7 @@ class User():
     @operation_to_make.deleter
     def operation_to_make(self):
         del self._operation_to_make
-    
+
 
     def make_operation(self, type_operation):
         """
@@ -89,3 +89,6 @@ class User():
         with the property self.operations_number
         """
         return self.operations_number
+
+if __name__ == '__main__':
+    print('working...')

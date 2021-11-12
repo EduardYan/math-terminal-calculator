@@ -15,7 +15,7 @@ INITIAL_MESSAGE = '''
     |Choice the operation to make   + - * /
     |
     |Write help for get more help.
-    |Write e for exit of the program
-    |
+    |Write e for exit of the program.
+    |Write c for clear the terminal.
     --------------------------------------------
 '''

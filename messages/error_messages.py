@@ -1,6 +1,6 @@
 """
 This module have messages saved
-in variables for show in error case.
+in variables for show in error case to user.
 """
 
 # in case not put a operation
