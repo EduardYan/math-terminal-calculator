@@ -58,6 +58,12 @@ def define_operation_to_make(property, operations_list):
     if property in operations_list[3]:
         property = 'divide'
 
+    if property in operations_list[4]:
+        property = 'potency'
+
+    if property in operations_list[4]:
+        property = 'ecuation'
+
     return property
 
 def define_operator(property, operations_list):
@@ -77,6 +83,12 @@ def define_operator(property, operations_list):
 
     if property in OPERATIONS[3]:
         property = '/'
+
+    if property in OPERATIONS[4]:
+        property = '**'
+
+    if property in OPERATIONS[5]:
+        property = 'ec'
 
     return property
 

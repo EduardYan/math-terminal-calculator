@@ -76,23 +76,26 @@ class CustomStyle:
         # return f'This is a custom style with color {self.color}, foreground {self.foreground} and style {self.style}'
         return 'This is a Custom Style'
 
-GREEN = CustomStyle( {'foreground': Fore.GREEN, 'style_text': Style.DIM, 'background': Back.BLACK} )
+GREEN = CustomStyle( {'foreground': Fore.GREEN, 'style_text': Style.BRIGHT, 'background': Back.BLACK} )
 GREEN = GREEN.get_custom_style()
 
-YELLOW = CustomStyle( {'foreground': Fore.YELLOW, 'style_text': Style.DIM, 'background': Back.BLACK} )
+YELLOW = CustomStyle( {'foreground': Fore.YELLOW, 'style_text': Style.NORMAL, 'background': Back.BLACK} )
 YELLOW = YELLOW.get_custom_style()
 
-BLUE = CustomStyle( {'foreground': Fore.BLUE, 'style_text': Style.DIM, 'background': Back.BLACK} )
+BLUE = CustomStyle( {'foreground': Fore.BLUE, 'style_text': Style.BRIGHT, 'background': Back.BLACK} )
 BLUE = BLUE.get_custom_style()
 
-RED = CustomStyle( {'foreground': Fore.RED, 'style_text': Style.DIM, 'background': Back.BLACK} )
+RED = CustomStyle( {'foreground': Fore.RED, 'style_text': Style.NORMAL, 'background': Back.BLACK} )
 RED = RED.get_custom_style()
 
-MAGENTA = CustomStyle( {'foreground': Fore.MAGENTA, 'style_text': Style.DIM, 'background': Back.BLACK} )
+MAGENTA = CustomStyle( {'foreground': Fore.MAGENTA, 'style_text': Style.NORMAL, 'background': Back.BLACK} )
 MAGENTA = MAGENTA.get_custom_style()
 
 WHITE = CustomStyle( {'foreground': Fore.WHITE, 'style_text': Style.BRIGHT, 'background': Back.BLACK} )
 WHITE = WHITE.get_custom_style()
+
+BLACK = CustomStyle( {'foreground': Fore.BLACK, 'style_text': Style.NORMAL, 'background': Back.WHITE} )
+BLACK = BLACK.get_custom_style()
 
 
 if __name__ == '__main__':

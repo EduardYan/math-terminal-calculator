@@ -3,7 +3,7 @@ This is the principal file for execute
 the terminal program.
 """
 
-from styles.styles import GREEN, BLUE, YELLOW, RED
+from styles.styles import BLUE, BLACK
 from messages.initial_messages import INITIAL_MESSAGE
 from messages.exit_messages import EXIT_MESSAGE
 from messages.help_messages import HELP_MESSAGE
@@ -26,14 +26,14 @@ def main():
     user = login()
 
     # Showing initial messages with yours styles
-    print( YELLOW + INITIAL_MESSAGE.format(username = user.username) )
+    print( INITIAL_MESSAGE.format(username = user.username) )
 
     # PRINCIPAL LOOP
     while True:
         type_operation = input( BLUE + '\nType Operation (+, -, *, /) > ' )
         # definning the operation to make and the type of operation
         user.operation_to_make = type_operation
-        print( YELLOW + f'The operation to make is {user.operation_to_make}.' )
+        print( BLACK + f'The operation to make is {user.operation_to_make}.' )
 
         # validating for exit of the program with the options for exie
         if type_operation == OPTIONS[0] or type_operation == OPTIONS[1] or type_operation == OPTIONS[2] or type_operation == OPTIONS[3] or type_operation == OPTIONS[4] or type_operation == OPTIONS[5] or type_operation == OPTIONS[6]:
@@ -45,11 +45,11 @@ def main():
 
         # in case the type of operation no be supported, validating
         elif type_operation not in JOIN_OPERATIONS + HELP_OPTIONS:
-            print( RED + OPERATION_UNKNOW )
+            print( OPERATION_UNKNOW )
 
         # for get help
         elif type_operation == 'help':
-            print( GREEN + HELP_MESSAGE )
+            print( HELP_MESSAGE )
 
         else:
             # the user making the operation
@@ -57,7 +57,7 @@ def main():
             show_operations_maked(user)
 
     # for when exit of the while loop
-    print( BLUE + EXIT_MESSAGE )
+    print( EXIT_MESSAGE )
 
 if __name__ == '__main__':
     main()

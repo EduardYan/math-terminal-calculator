@@ -5,7 +5,12 @@ for use and show it in the program.
 
 """
 
-INITIAL_MESSAGE = '''
+import sys
+sys.path.append('..')
+
+from styles.styles import GREEN
+
+INITIAL_MESSAGE = GREEN + '''
     --------------------------------------------
     |Math Program!!
     |Welcome ~ {username} ~ !!

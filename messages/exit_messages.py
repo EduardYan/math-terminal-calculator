@@ -4,4 +4,9 @@ saved in variables for show when the user exit of the
 program.
 """
 
-EXIT_MESSAGE = '\nExited :}'
+import sys
+sys.path.append('..')
+
+from styles.styles import GREEN
+
+EXIT_MESSAGE = GREEN + '\nExited :}'

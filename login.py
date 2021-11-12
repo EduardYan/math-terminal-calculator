@@ -42,7 +42,7 @@ def make_animation():
             print( Cursor.POS(50, 6) + Fore.BLUE + list_points[i] + f' {i - 1} ' + CHECK4.symbol_to_show )
         sleep(0.5)
 
-    print( GREEN + '\nDone ' +  CHECK3.symbol_to_show )
+    print( GREEN + '\nDone ' + BLUE + CHECK3.symbol_to_show )
 
 
 def login():
