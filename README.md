@@ -9,4 +9,8 @@ pip3 install -r requirements.txt
 ```
 
 ## Run.
-__For run the program execute: python3 main.py or python3 -m main__
+__For run the program execute:__
+
+```bash
+python3 main.py or python3 -m main
+```
