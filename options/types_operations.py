@@ -10,9 +10,10 @@ MULTIPLY = ['*', '* ', '*  ', '*   ', '*    ', '*     ']
 DIVIDE = ['/', '/ ', '/  ', '/   ', '/    ', '/     ']
 POTENCY = ['po', 'po ', 'po  ', 'po   ', 'po   ', 'po    ']
 ECUATION = ['ec', 'ec ', 'ec  ', 'ec   ', 'ec    ', 'ec    ']
+LOG = ['log', 'log ', 'log  ', 'log   ', 'log    ', 'log     ']
 
 # this is a tuple with the list of operations
-OPERATIONS = (ADD, SUBTRACT, MULTIPLY, DIVIDE, POTENCY, ECUATION)
+OPERATIONS = (ADD, SUBTRACT, MULTIPLY, DIVIDE, POTENCY, ECUATION, LOG)
 
 # this is a list with the operations join
-JOIN_OPERATIONS = ADD + SUBTRACT + MULTIPLY + DIVIDE + POTENCY + ECUATION
+JOIN_OPERATIONS = ADD + SUBTRACT + MULTIPLY + DIVIDE + POTENCY + ECUATION + LOG

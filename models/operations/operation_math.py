@@ -12,6 +12,7 @@ sys.path.append(
 
 from options.types_operations import OPERATIONS
 from helpers.utils import define_operator, define_operation_to_make
+from math import log
 
 class OperationMathematic:
     """
@@ -19,6 +20,8 @@ class OperationMathematic:
     with a n1, n2.
     The property self.operator is None for default.
 
+    This class not support the equation operation and the log operation.
+    Each class have yours owns methods.
     """
 
     def __init__(self, n1, n2):
@@ -129,6 +132,7 @@ class OperationMathematic:
 
         if self.operator == '**':
             return self.n1 ** self.n2
+
 
     def __str__(self):
         return f'This is a operation of type {self.type_operation}, with first value to {self.n1} and like second value to {self.n2}'
