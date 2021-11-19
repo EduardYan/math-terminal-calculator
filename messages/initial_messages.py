@@ -8,9 +8,9 @@ for use and show it in the program.
 import sys
 sys.path.append('..')
 
-from styles.styles import GREEN
+from styles.styles import YELLOW2
 
-INITIAL_MESSAGE = GREEN + '''
+INITIAL_MESSAGE = YELLOW2 + '''
     --------------------------------------------
     |Math Program!! of EduardYan.
     |

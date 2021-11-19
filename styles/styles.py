@@ -12,6 +12,7 @@ sys.path.append('..')
 from colorama import Fore, Style, Back, init
 from options.styles_options import STYLES_OPTIONS
 
+
 class CustomStyle:
     """
     Create a CustomStyle with a color, foregroud, and a style.
@@ -79,7 +80,6 @@ class CustomStyle:
         init(autoreset = True)
         return self.foreground + self.background + self.style_text
 
-
     def __str__(self):
         # return f'This is a custom style with color {self.color}, foreground {self.foreground} and style {self.style}'
         return 'This is a Custom Style'
@@ -87,8 +87,14 @@ class CustomStyle:
 GREEN = CustomStyle( {'foreground': Fore.GREEN, 'style_text': Style.BRIGHT, 'background': Back.BLACK} )
 GREEN = GREEN.get_custom_style()
 
+MAGENTA2 = CustomStyle( {'foreground': Fore.LIGHTMAGENTA_EX, 'style_text': Style.BRIGHT, 'background': Back.BLACK} )
+MAGENTA2 = MAGENTA2.get_custom_style()
+
 YELLOW = CustomStyle( {'foreground': Fore.YELLOW, 'style_text': Style.NORMAL, 'background': Back.BLACK} )
 YELLOW = YELLOW.get_custom_style()
+
+YELLOW2 = CustomStyle( {'foreground': Fore.YELLOW, 'style_text': Style.BRIGHT, 'background': Back.BLACK} )
+YELLOW2 = YELLOW2.get_custom_style()
 
 BLUE = CustomStyle( {'foreground': Fore.BLUE, 'style_text': Style.BRIGHT, 'background': Back.BLACK} )
 BLUE = BLUE.get_custom_style()

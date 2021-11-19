@@ -2,7 +2,7 @@
 This module have the class Divide for use.
 """
 
-from operation_math import OperationMathematic
+from .operation_math import OperationMathematic
 
 class Divide(OperationMathematic):
 	"""

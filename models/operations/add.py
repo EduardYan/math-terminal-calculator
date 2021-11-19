@@ -2,13 +2,8 @@
 This module have the class Add.
 """
 
-import sys
-import os
-# this is to get other modules to use
-sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/operations/')))
+from .operation_math import OperationMathematic
 
-from operation_math import OperationMathematic
 
 class Add(OperationMathematic):
 	"""

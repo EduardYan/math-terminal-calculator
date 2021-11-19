@@ -9,7 +9,7 @@ sys.path.append('..')
 from messages.equation_messages import HELP_EQUATION_MESSAGE
 from .operation_math import OperationMathematic
 from helpers.utils import isnegative
-from styles.styles import GREEN, BLACK
+from styles.styles import GREEN, BLACK, MAGENTA
 
 class Equation(OperationMathematic):
 	"""
@@ -27,9 +27,9 @@ class Equation(OperationMathematic):
 		and the operator for make equation.
 		"""
 		# getting the values and adding this properties at the father class
-		self.n1 = float(input('Value 1: '))
-		self.operator = input('Operator: ')
-		self.n2 = float(input('Value 2: '))
+		self.n1 = float(input( MAGENTA + 'Value 1: ') )
+		self.operator = input( MAGENTA + 'Operator: ')
+		self.n2 = float(input( MAGENTA + 'Value 2: ') )
 
 	def show_help_equation(self):
 		"""

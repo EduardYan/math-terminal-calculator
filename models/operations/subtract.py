@@ -2,7 +2,7 @@
 This module have the class Subtract.
 """
 
-from operation_math import OperationMathematic
+from .operation_math import OperationMathematic
 
 class Subtract(OperationMathematic):
 	"""

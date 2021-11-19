@@ -2,7 +2,7 @@
 This module have the class Potency.
 """
 
-from operation_math import OperationMathematic
+from .operation_math import OperationMathematic
 
 class Potency(OperationMathematic):
 	"""
