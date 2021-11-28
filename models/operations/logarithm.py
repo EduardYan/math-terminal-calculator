@@ -29,37 +29,53 @@ class Logarithm(OperationMathematic):
         Descompone the number
         in primes factories.
 
-        12|2
-        6|2
-        3|2
-        1|1
+        This is the descomposition:
+        ---------------------
+        12|3
+        4|2
+        2|2
+        1|
 
-        2^3
+        3*2*2 = 12
 
+        ---------------------
 
         """
 
-        # validating if the number is pair or inpair for
-        # return the number
+        # validating if the number is pair or inpair for return the number
         if is_pair(self.number):
-            div = self.number / 2 # dividing
+            # import pdb; pdb.set_trace() # for debug
+
+            divisor = self.__get_divisor(self.number)
+
+            div = self.number / divisor # dividing
             count = 1 # counter for know the count of the while loop
 
             while div != 1:
-                div = div / 2
+                print(div)
+
+                div = div / divisor
                 count += 1
 
+            print(div)
             return count
 
         else:
-            div = self.number / 2
-            count = 1
+            print('the number not is pair')
 
-            while div != 1:
-                div = div / 2
-                count += 1
 
-            return count
+    def __get_divisor(self):
+        """
+        Return the divisor of the number
+        to make the log, between the base.
+        """
+
+        # validating for return the divisor
+        if self.number % 2 == 0:
+            return 2
+
+        elif self.number % 3 == 0:
+            return 3
 
     def show_log(self):
         """
