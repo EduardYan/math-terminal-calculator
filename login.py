@@ -46,25 +46,27 @@ def make_animation():
 
 
 def login():
-	"""
-	Make the login for the user
-	getting the username.
-	Creating a user object.
+    """
+    Make the login for the user
+    getting the username.
+    Creating a user object.
 
     Return a user object.
-	"""
+    """
 
-	print( BLUE + 'Login' )
+    print( BLUE + 'Login' )
 
-	# getting the username and creating the user object
-	username = input( BLUE + 'Username > ' )
-	user = User(username)
+    # getting the username and creating the user object
+    username = input( BLUE + 'Username > ' )
+    user = User(username)
 
-	# making the animation
-	make_animation()
+    if not user.username == 'test':
+        # making the animation
+        make_animation()
+        return user
 
-	# returning the object
-	return user
+    # returning the object
+    return user
 
 if __name__ == '__main__':
-    make_animation()
+    print('testing the animation')
