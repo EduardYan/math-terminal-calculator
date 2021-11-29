@@ -10,7 +10,7 @@ sys.path.append('..') # this is for can get other modules for use
 
 from options.types_operations import OPERATIONS
 
-def show_operations_maked(user):
+def show_operations_maked(user:object):
     """
     Show the numbers of operations
     maked for the user.
@@ -23,7 +23,7 @@ def show_operations_maked(user):
     print(f'\n<== {user.username} you have maked {maked} operations ==>')
 
 
-def validate_number(number):
+def validate_number(number:str):
     """
     Validate if the number is valid
     for make the operation
@@ -39,7 +39,7 @@ def validate_number(number):
 
     return False
 
-def define_operation_to_make(property, operations_list):
+def define_operation_to_make(property:str, operations_list:list):
     """
     Return the type of operation to make.
     Validating the operations list defined.
@@ -66,7 +66,7 @@ def define_operation_to_make(property, operations_list):
 
     return property
 
-def define_operator(property, operations_list):
+def define_operator(property:str, operations_list:list):
     """
     Return the type of operator depending of the operations_list
     passed for parameter.
@@ -108,7 +108,7 @@ def clear_terminal():
         os.system('cls')
 
 
-def isnegative(number):
+def isnegative(number:str):
     """
     Return True if the number is negative.
     If the number is positive return False.
@@ -118,7 +118,7 @@ def isnegative(number):
     return True if number[0] == '-' else False
 
 
-def is_pair(number):
+def is_pair(number:float):
     """
     Return True if the number passed for parameter
     is pair.

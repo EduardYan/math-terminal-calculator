@@ -10,18 +10,20 @@ import os.path
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir, os.path.pardir)))
 
-from options.types_operations import OPERATIONS
 from helpers.utils import define_operator, define_operation_to_make
-from math import log
+from options.types_operations import OPERATIONS, OPERATORS, JOIN_OPERATIONS
 
 class OperationMathematic:
     """
     Create a OperationMathematic
     with a n1, n2.
+
     The property self.operator is None for default.
+    And the two values are floats for default.
 
     This class not support the equation operation and the log operation.
     Each class have yours owns methods.
+
     """
 
     def __init__(self, n1, n2):
@@ -36,8 +38,8 @@ class OperationMathematic:
         if type(n2) not in [int, float]:
             raise TypeError('The parameter n2 not is of type int or float. Must be a int or float.')
 
-        self._n1 = n1
-        self._n2 = n2
+        self._n1 = float(n1)
+        self._n2 = float(n2)
 
     # some interface methods
     @property
@@ -46,8 +48,19 @@ class OperationMathematic:
 
     @operator.setter
     def operator(self, value):
+        # validating the type of data and the type of operator for change
         if type(value) not in [str]:
             raise TypeError('The value for change the property operator not is a str. Must be a string.')
+
+        # validating the operator value passed for parameter
+        if value not in OPERATORS:
+            if value not in JOIN_OPERATIONS:
+                # solo se va a ejecutar en caso no sea ninguna de las
+                # operaciones validas. Esto lo hago para que no falle en la
+                # equacion ni en las operaciones basicas
+                raise ValueError('The value for define a operator not is a operator valid.')
+            else:
+                self._operator = define_operator(value, OPERATIONS)
 
         self._operator = define_operator(value, OPERATIONS)
 
@@ -76,10 +89,7 @@ class OperationMathematic:
 
     @n1.setter
     def n1(self, value):
-        if type(value) not in [int, float]:
-            raise TypeError('The value for change the property n1 not is a int or float. Must be a int or float.')
-
-        self._n1 = value
+        self._n1 = float(value)
 
     @n1.deleter
     def n1(self):
@@ -91,22 +101,20 @@ class OperationMathematic:
 
     @n2.setter
     def n2(self, value):
-        if type(value) not in [int, float]:
-            raise TypeError('The value for change the property n2 not is a int or float. Must be a int or float.')
-
-        self._n2 = value
+        self._n2 = float(value)
 
     @n2.deleter
     def n2(self):
         del self._n2
 
 
-    def get_result_operation (self, operator):
+    def get_result_operation(self, operator:str):
         """
         Retun the result of the
         operation according to the operator passed by parameter.
         This method validate the type of operation
         for make + - * or /.
+
         """
         # validating the type of data
         if type(operator) not in [str]:

@@ -12,8 +12,8 @@ from .operations.potency import Potency
 from .operations.equation import Equation
 from .operations.logarithm import Logarithm
 from helpers.utils import validate_number, define_operation_to_make
-from options.types_operations import OPERATIONS, OPERATORS
-from messages.error_messages import VALUE_ERROR, ZERO_ERROR, SYNTAX_ERROR, OPERATOR_EQUATION_EROR
+from options.types_operations import OPERATIONS
+from messages.error_messages import VALUE_ERROR, ZERO_ERROR, SYNTAX_ERROR
 from styles.styles import MAGENTA, GREEN
 
 
@@ -130,7 +130,6 @@ class Operation:
             # validating if the value of the numbers are numeric values
             if not validate_number(self.n1):
                 print( VALUE_ERROR.format(number = 1, number_value = self.n1) )
-
             elif not validate_number(self.n2):
                 print( VALUE_ERROR.format(number = 2, number_value = self.n2) )
 
@@ -140,23 +139,18 @@ class Operation:
 
         if self.type in OPERATIONS[5]:
             # making the opeartion in case be a Equation
-            equation = Equation()
-            equation.show_help_equation() # showing the help for the user
+            self.equation = Equation()
+            self.equation.show_help_equation() # showing the help for the user
+            output = self.__show_inputs_equation() # showing the inputs for get the values
 
-            if not validate_number(equation.n1):
-                print( VALUE_ERROR.format(number = 'Value 1', number_value = equation.n1) )
-
-            elif not validate_number(equation.n2):
-                print( VALUE_ERROR.format(number = 'Value 2', number_value = equation.n2) )
-
-            elif not equation.operator in OPERATORS[0] or not equation.operator in OPERATORS[1] or not equation.operator in OPERATORS[2] or not equation.operator in OPERATORS[3]:
-                print( OPERATOR_EQUATION_EROR )
-
+            # validating the output
+            if output == 'e':
+                print( SYNTAX_ERROR.format(name_operation = self.equation.type_operation) )
             else:
-                equation.show_result_equation()
-
+                self.equation.show_result_equation()
 
         if self.type in OPERATIONS[6]:
+            # in case be a logarithm operation
             log = Logarithm()
             print(log)
 
@@ -188,10 +182,13 @@ class Operation:
         and the operator for make equation.
         """
 
-        # getting the values and adding this properties at the father class
-        equation.n1 = input( MAGENTA + 'Value 1: ')
-        equation.operator = input( MAGENTA + 'Operator: ')
-        equation.n2 = (input( MAGENTA + 'Value 2: ')
+        try:
+            # getting the values and adding this properties at the father class
+            self.equation.n1 = input( MAGENTA + 'Value 1: ')
+            self.equation.operator = input( MAGENTA + 'Operator: ' )
+            self.equation.n2 = input( MAGENTA + 'Value2: ' )
+        except ValueError:
+            return 'e'
 
     def __get_result_add(self):
         """
@@ -249,12 +246,16 @@ class Operation:
         Return the result of the operation
         created , in case be a pontecy.
         """
-        try:
-            pontecy = Potency( int(self.n1), int(self.n2) )
-            total = pontecy.get_result_operation(self.type)
-            return total
-        except:
-            return 'e'
+        # try:
+            # pontecy = Potency( int(self.n1), int(self.n2) )
+            # total = pontecy.get_result_operation(self.type)
+            # return total
+        # except:
+            # return 'e'
+        pontecy = Potency( int(self.n1), int(self.n2) )
+        total = pontecy.get_result_operation(self.type)
+        return total
+
 
     def __str__(self):
         return 'The type of the operation is {self.type}.'
