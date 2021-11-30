@@ -47,22 +47,25 @@ def define_operation_to_make(property:str, operations_list:list):
 
     # validating for define the property of the object
     if property in operations_list[0]:
-        property = 'add'
+        property = 'Add'
 
     if property in operations_list[1]:
-        property = 'subtract'
+        property = 'Subtract'
 
     if property in operations_list[2]:
-        property = 'multiply'
+        property = 'Multiply'
 
     if property in operations_list[3]:
-        property = 'divide'
+        property = 'Divide'
 
     if property in operations_list[4]:
-        property = 'potency'
+        property = 'Potency'
 
     if property in operations_list[5]:
-        property = 'ecuation'
+        property = 'Ecuation'
+
+    if property in operations_list[6]:
+        property = 'Logarithm'
 
     return property
 

@@ -116,4 +116,5 @@ CYAN = CYAN.get_custom_style()
 
 
 if __name__ == '__main__':
+    print('Testing for see the colors. Jeje')
     print(GREEN)

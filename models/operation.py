@@ -150,9 +150,16 @@ class Operation:
                 self.equation.show_result_equation()
 
         if self.type in OPERATIONS[6]:
-            # in case be a logarithm operation
-            log = Logarithm()
-            print(log)
+            # in case be a logarithm operation, creating a object Logarithm
+            self.logarithm = Logarithm()
+
+            output = self.__show_inputs_logarithm()
+
+            if output == 'e':
+                print( SYNTAX_ERROR.format(name_operation = self.logarithm.type_operation) )
+
+            else:
+                self.logarithm.show_log()
 
     def get_operation(self):
         """
@@ -187,7 +194,18 @@ class Operation:
             self.equation.n1 = input( MAGENTA + 'Value 1: ')
             self.equation.operator = input( MAGENTA + 'Operator: ' )
             self.equation.n2 = input( MAGENTA + 'Value2: ' )
-        except ValueError:
+        except:
+            return 'e'
+
+    def __show_inputs_logarithm(self):
+        """
+        Show the inputs for get the values of the logarithm.
+        """
+        try:
+            self.logarithm.number = float(input( MAGENTA + '\nNumber: ' ))
+            self.logarithm.base = float(input( MAGENTA + 'Base: '))
+
+        except:
             return 'e'
 
     def __get_result_add(self):

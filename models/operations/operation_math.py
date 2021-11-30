@@ -110,10 +110,14 @@ class OperationMathematic:
 
     def get_result_operation(self, operator:str):
         """
-        Retun the result of the
+        Return the result of the
         operation according to the operator passed by parameter.
         This method validate the type of operation
-        for make + - * or /.
+        for make + - * or / and potency.
+
+        This method not return the result of the operation
+        in case be a equation or logarithm, these classes have yours
+        owns methods and functionality !!
 
         """
         # validating the type of data

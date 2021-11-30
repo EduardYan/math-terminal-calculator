@@ -13,7 +13,7 @@ class Symbol:
 
     """
 
-    def __init__(self, code_unicode, symbol_to_show):
+    def __init__(self, code_unicode:str, symbol_to_show:str):
         # properties
         self.code_unicode = code_unicode
         self.symbol_to_show = symbol_to_show

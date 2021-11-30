@@ -18,6 +18,7 @@ HELP_MESSAGE = MAGENTA2 + f'''\n
         / (divide)
         po (potency)
         ec (make a simple ecuation)
+        log (get the logarithm of the a number)
 
     You must enter two numeric values for make the operation.
     For clean the terminal write c.

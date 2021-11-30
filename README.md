@@ -25,5 +25,11 @@ __Or:__
 ```bash
 $ python3 -m main
 ```
+
+## Use:
+__For get more information, you can run "help" in the commad line of the operation, about the operations commands.__
+
+__For not see the initial login, you can login as "test" user.__
+
 ## Screenshot.
 ![](/doc/screenshot.png)

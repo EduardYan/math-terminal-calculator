@@ -7,14 +7,17 @@ sys.path.append('..')
 
 from .operation_math import OperationMathematic
 from helpers.utils import is_pair
+from math import log
+from styles.styles import BLACK
 
 class Logarithm(OperationMathematic):
-    def __init__(self, number, base):
-        super().__init__(number, base)
-        self.number = number
-        self.base = base
+    def __init__(self):
+        # initials values
+        self.number = None
+        self.base = None
+        self.type_operation = 'log'
 
-    def get_log(self):
+    def get_result(self):
         """
         Return the log.
 
@@ -22,7 +25,9 @@ class Logarithm(OperationMathematic):
         x = 12/10
 
         """
-        pass
+
+        result_log = log(self.number, self.base)
+        return result_log
 
     def descomp(self):
         """
@@ -41,27 +46,7 @@ class Logarithm(OperationMathematic):
         ---------------------
 
         """
-
-        # validating if the number is pair or inpair for return the number
-        if is_pair(self.number):
-            # import pdb; pdb.set_trace() # for debug
-
-            divisor = self.__get_divisor()
-
-            div = self.number / divisor # dividing
-            count = 1 # counter for know the count of the while loop
-
-            while div != 1:
-                print(div)
-
-                div = div / divisor
-                count += 1
-
-            print(div)
-            return count
-
-        else:
-            print('the number not is pair')
+        pass
 
 
     def __get_divisor(self):
@@ -81,7 +66,10 @@ class Logarithm(OperationMathematic):
         """
         Show the log result.
         """
-        print('showing the log')
+
+        # getting the result and show it
+        self.__result = self.get_result()
+        print( BLACK + f'\nLogarithm base {self.base} of {self.number} = {self.__result}' )
 
     def __str__(self):
-        return 'This is a logarithm'
+        return 'This is a logarithm with base {self.base} and number {self.number}.'
