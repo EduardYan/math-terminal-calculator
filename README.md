@@ -1,6 +1,6 @@
 # Math Terminal Calculator.
 
-Make basics mathematics operations from the terminal.
+__Make basics mathematics operations from the terminal.__
 
 ## Installation using Docker.
 
