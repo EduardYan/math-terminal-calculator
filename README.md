@@ -2,8 +2,18 @@
 
 Make basics mathematics operations from the terminal.
 
-## Dependencies.
+## Installation using Docker.
+
+```bash
+docker run -it eduarddan/math-calculator
+```
+
+## Manual.
+
+### Dependencies.
+
 Create a virtual environment or just install the dependencies from requirements file by running:
+
 ```bash
 $ pip3 install -r requirements.txt
 ```
@@ -13,7 +23,7 @@ __Or install dependencies manually execute:__
 $ pip3 install -Iv colorama=0.4.4
 ```
 
-## Run.
+### Run.
 __For run the program execute:__
 
 ```bash
